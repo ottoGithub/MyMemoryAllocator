@@ -126,7 +126,7 @@ char* MyMemoryAlloc::ChunkMemory(size_t nBlockSize, int& nBlockCount)
 			m_pFreeList[BlockIndex] = (obj*)(m_pMemHead + 1);
 		}
 		//新水量的大小为需求量的4倍,再加上 一个随着配置次数增加而愈来愈大的附加量
-		size_t nAllocTotalBytes = 4 * nTotalBytes + RoundUp(m_nMyHeap_Size >> 4);
+		size_t nAllocTotalBytes = 2 * nTotalBytes + RoundUp(m_nMyHeap_Size >> 4);
 
 		m_pMemHead = (char*)::malloc(nAllocTotalBytes);
 		if(!m_pMemHead)
